@@ -1,0 +1,669 @@
+Original	Salva	Casimir	Type	Subtype	Characteristic
+0	0	0	unknown		
+absorptive cell	absorptive cell	absorptive 	unknown		absorptive
+acniar cell	acniar cell	acniar 	unknown		acniar
+activated t cell	t cell	activated t	t		activated
+adenocarcinoma epithelial cell	epithelial cell	adenocarcinoma epithelial 	epithelial	adenocarcinoma	
+adipocyte	adipocyte	adipocyte	adipocyte		
+adipose tissue	adipose tissue	adipose tissue	tissue	adipose	
+adrenocortical cell	adrenocortical cell	adrenocortical 	adrenocortical		
+airway smooth muscle cell	muscle cell	airway smooth_muscle 	muscle	smooth	airway
+alpha cell	alpha cell	alpha 	alpha		
+alveolar bipotent/intermediate cell	alveolar bipotent/intermediate cell	alveolar bipotent/intermediate 	bipotent/intermediate	alveolar	
+antigen presenting cell	antigen-presenting cell	antigen-presenting 	antigen-presenting		
+antigen-presenting cell	antigen-presenting cell	antigen-presenting 	antigen-presenting		
+arterial endothelial cell	endothelial cell	arterial endothelial	endothelial	arterial	
+artry endothelial cell	endothelial cell	atery endothelial 	endothelial	atery	
+astrocyte	astrocyte	astrocyte	astrocyte		
+astrocyte(bergmann glia)	astrocyte	astrocyte	astrocyte		
+at1 cell	at1 cell	at1 	at1		
+at2 cell	at2 cell	at2 	at2		
+atrial cardiomyocyte	atrial cardiomyocyte	atrial cardiomyocyte	cardiomyocyte	atrial	
+b cell	b cell	b 	b		
+b cell (centrocyte)	b cell	b 	b		
+b cell (plasmocyte)	b cell	b 	b		
+b cell(centrocyte)	b cell	enterocyte b	b	enterocyte	
+b cell(plasmocyte)	b cell	plasmocyte b	b	plasmocyte	
+b cell(unknown)	b cell	b 	b		
+basal cell	basal cell	basal 	basal		
+basal/epithelial cell	basal/epithelial cell	basal/epithelial 	epithelial	basal	
+beta cell	b cell	b 	b		
+cardiomyocyte	cardiomyocyte	cardiomyocyte	cardiomyocyte		
+cd4	cd4	cd4 t	t	cd4	
+cd8	cd8	cd8 t	t	cd8	
+cd8 t cell	t cell	cd8 t	t	cd8	
+cd8+ t cell	t cell	cd8 t	t	cd8	
+cervical mesothelial cell	mesothelial cell	cervical mesothelial 	mesothelial	cervical	
+cholangiocyte	cholangiocyte	cholangiocyte	cholangiocyte		
+chondrocyte	chondrocyte	chondrocyte	chondrocyte		
+chromaffin cell	chromaffin cell	chromaffin 	chromaffin		
+ciliated cell	ciliated cell	ciliated 	epithelial		ciliated
+ciliated epithelial cell	ciliated epithelial cell	ciliated epithelial 	epithelial	ciliated	
+club cell	club cell	club 	club		
+collecting duct cell	collecting duct cell	collecting_duct 	collecting_duct		
+conventional dendritic cell	conventional dendritic cell	conventional dendritic 	dendritic	conventional	
+cytotrophoblast	cytotrophoblast	cytotrophoblast	cytotrophoblast		
+d cell/ x/a cell	d cell/ x/a cell	d / x/a 	known		
+dendritic cell	dendritic cell	dendritic 	dendritic		
+dermis fibroblast	fibroblast	fibroblast	fibroblast		
+distal progenitor cell	distal progenitor cell	progenitor distal_tubule	distal_tubule	progenitor	
+distal tubule cell	distal tubule cell	distal tubule 	tubule	distal	
+distal tubule progenitor cell	distal tubule progenitor cell	progenitor distal_tubule	distal_tubule	progenitor	
+duct cell	duct cell	duct 	epithelial		ductal
+ductal cell	ductal cell	ductal 	epithelial		ductal
+effector t cell	effector t cell	effector t 	t	effector	
+endocardial cell	endocardial cell	endocardial 	endocardial		
+endocervix mesothelial cell	mesothelial cell	endocervix mesothelial 	mesothelial	endocervix	
+endocrine cell	endocrine cell	endocrine 	endocrine		
+endometrial cell	endometrial cell	endometrial 	endometrial		
+endothelial cell	endothelial cell	endothelial 	endothelial		
+endothelial cell (non-professional apc)	endothelial cell	non-professional_apc endothelial 	endothelial	non-professional_apc	
+endothelial cell in emt	endothelial cell	epithelial_to_mesenchymal_transition endothelial 	endothelial	epithelial_to_mesenchymal_transition	
+endothelial progenitor cell	endothelial cell	progenitor endothelial 	endothelial	progenitor	
+enteric glial cell	glial cell	glial 	glial		
+enteric nerval cell	enteric nerval cell	enteric neuron	neuron	enteric	
+enterocyte	enterocyte	enterocyte	enterocyte		
+enterocyte progenitor	enterocyte	progenitor enterocyte	enterocyte	progenitor	
+enteroendocrine cell	enteroendocrine cell	enteroendocrine 	enteroendocrine		
+eosinophil	eosinophil	eosinophil	eosinophil		
+ependymal cell	ependymal cell	ependymal 	ependymal		
+epithelial	epithelial cell	epithelial 	epithelial		
+epithelial cell	epithelial cell	epithelial 	epithelial		
+epithelial progenitor cell	epithelial cell	progenitor epithelial 	epithelial		progenitor
+epithelial¨cmesenchymal transition	epithelial¨cmesenchymal transition	epithelial_to_mesenchymal_transition endothelial 	endothelial	epithelial_to_mesenchymal_transition	
+erythroid cell	erythroid cell	erythroid 	erythroid		
+erythroid progenitor cell	erythroid progenitor cell	progenitor erythroid 	erythroid		progenitor
+erythroid/basophil progenitor	erythroid/basophil progenitor	erythroid/basophil progenitor	erythroid	basophil	progenitor
+es	es	es	es		
+excitatory neuron	neuron	excitatory neuron	neuron	excitatory	
+exocrine cell	exocrine cell	exocrine 	exocrine		
+extravillous trophoblast	extravillous trophoblast	extravillous trophoblast	trophoblast	extravillous	
+fast skeletal muscle cell	muscle cell	fast skeletal muscle 	muscle	skeletal	fast
+fenestrated endothelial cell	endothelial cell	fenestrated endothelial 	endothelial	fenestrated	
+fetal leydig cell	leydig cell	fetal leydig	leydig	fetal	
+fibroblast	fibroblast	fibroblast	fibroblast		
+fibroblast cell	fibroblast	fibroblast	fibroblast		
+follicular dendritic cell	follicular dendritic cell	follicular dendritic 	dendritic	follicular	
+ganglion cell	ganglion cell	ganglion 	ganglion		
+gastric chief cell	gastric chief cell	gastric_chief	gastric_chief		
+gastric mucosa cell	gastric mucosa cell	gastric mucosa 	mucous	gastric	
+germ cell	germ cell	germ 	germ		
+glial cell	glial cell	glial 	glial		
+glomerular endothelial cell	glomerular endothelial cell	glomerular endothelial 	endothelial	glomerular	
+goblet cell	goblet cell	goblet 	goblet		
+granulocyte	granulocyte	granulocyte	granulocyte		
+hepatocyte	hepatocyte	hepatocyte	hepatocyte		
+hepatocyte-like cell	hepatocyte-like cell	hepatocyte-like 	hepatoctye		like
+hofbauer cell	hofbauer cell	hofbauer 	hofbauer		
+hspc	hspc	hspc	hspc		
+hypertrophic chondrocyte	hypertrophic chondrocyte	hypertrophic chondrocyte	chondrocyte	hypertrophic	
+ic-tran-pc	ic-tran-pc	ic-tran-pc	ic-tran-pc		
+immature sertoli cell(pre-sertoli cell)	immature sertoli cell(pre-sertoli cell)	immature sertoli	sertoli		immature
+immune response stromal cell	stromal cell	immune_response stromal 	stromal		immune_response
+inflammatory cell	inflammatory cell	inflammatory 	unknown		inflammatory
+inflammatory stromal cell	stromal cell	inflammatory stromal 	stromal		inflammatory
+inflammed epithelial cell	epithelial cell	inflamed epithelial	epithelial		inflamed
+inhibitory neuron	neuron	inhibitory neuron	neuron	inhibitory	
+intercalated cell	intercalated cell	intercalated 	intercalated		
+intermediate epithelial cell	epithelial cell	intermediate epithelial	epithelial	intermediate	
+intermediated cell	intermediated cell	intermediated 	intermediated		
+interneuron	interneuron	interneuron	interneuron		
+interstitial cell	interstitial cell	interstitial 	interstitial		
+interstitial progenitor cell	interstitial progenitor cell	progenitor interstitial 	interstitial	progenitor	
+intra-adrenal chromoblast	intra-adrenal chromoblast	intra-adrenal chromoblast	chromoblast	intra-adrenal	
+intra-adrenal ganglion neuron	neuron	intra-adrenal_ganglion neuron	neuron	intra-adrenal_ganglion	
+keratinocyte	keratinocyte	keratinocyte	keratinocyte		
+kerationcyte	keratinocyte	keratinocyte	keratinocyte		
+kidney epithelial cell	kidney epithelial cell	kidney epithelial 	epithelial	kidney	
+kupffer cell	kupffer cell	kupffer 	kupffer		
+kuppfer cell	kupffer cell	kupffer 	kupffer		
+lens epithelial cell	lens epithelial cell	lens epithelial 	epithelial	lens	
+loop of henle	loop of henle	loop_of_henle	loop_of_henle		
+loop of henle (thick ascending limb)	loop of henle (thick ascending limb)	thick_ascending_limb loop_of_henle	loop_of_henle	thick_ascending_limb	
+loop of henle progenitor cell	loop of henle progenitor cell	progenitor loop_of_henle 	loop_of_henle		progenitor
+loop of henle(thick ascending limb)	loop of henle(thick ascending limb)	thick_ascending_limb loop_of_henle	loop_of_henle	thick_ascending_limb	
+luminal cell	luminal cell	luminal 	luminal		
+luminal epithelium	luminal epithelium	luminal epithelium	epithelium	luminal	
+lung mesenchyme cell (cardiopulmonary progenitor)	lung mesenchyme cell (cardiopulmonary progenitor)	progenitor cardiopulmonary lung_mesenchyme	lung_mesenchyme	cardiopulmonary	progenitor
+lymphatic endothelial cell	endothelial cell	lymphatic endothelial 	endothelial	lymphatic	
+lymphocyte	lymphocyte	lymphocyte	lymphocyte		
+lymphoid progenitor cell	lymphoid progenitor cell	lymphoid progenitor 	lymphoid		progenitor
+m¨¹ller glia	m¨¹ller glia	mueller glia	glia	mueller	
+m1 macrophage	macrophage	m1 macrophage	macrophage	m1	
+m2 macrophage	macrophage	m2 macrophage	macrophage	m2	
+macrophage	macrophage	macrophage	macrophage		
+mast	mast cell	mast 	mast		
+mast cell	mast cell	mast 	mast		
+mast progenitor cell	mast cell	progenitor mast 	mast		progenitor
+megakaryocyte	megakaryocyte	megakaryocyte	megakaryocyte		
+megakaryocyte/erythroid progenitor	megakaryocyte/erythtoid progenitor cell	 progenitor  megakaryocyte/erythtoid	megakaryocyte	erythroid	progenitor
+megakaryocyte/erythtoid progenitor cell	megakaryocyte/erythtoid progenitor cell	progenitor megakaryocyte/erythtoid	megakaryocyte	erythtoid	progenitor
+melanocyte	melanocyte	melanocyte	melanocyte		
+mesangial cell	mesangial cell	mesangial 	mesangial		
+mesenchymal cell	mesenchymal cell	mesenchymal 	mesenchymal		
+mesothelial cell	mesothelial cell	mesothelial 	mesothelial		
+microglia	microglia	microglia	microglia		
+microvascular endothelial cell	microvascular endothelial cell	microvascular endothelial 	endothelial	microvascular	
+monocyte	monocyte	monocyte	monocyte		
+monocyte/dc progenitor	monocyte/dc progenitor	monocyte/dc progenitor	monocyte/dc		progenitor
+motile liver macrophage	macrophage	motile_liver macrophage	macrophage	motile_liver	
+motor neuron	motor neuron	motor neuron	neuron	motor	
+mt high	mt high	mt_high	mt_high		
+mt-gene high cell	mt-gene high cell	mt_high 	mt_high		
+mucosal aquamous epithelial cell	epithelial cell	aquamous mucosal epithelial 	epithelial	mucosal	aquamous
+mucous epithelial cell	epithelial cell	mucous epithelial	epithelial	mucous	
+mucous neck cell	mucous neck cell	neck mucous	mucous	neck	
+multipotential progenitor cell	multipotential progenitor cell	multipotential progenitor 	multipotential		progenitor
+muscle progenitor cell	muscle cell	progenitor muscle 	muscle		progenitor
+muscle cell	muscle cell	muscle cell	muscle		
+myelinating oligodendrocyte	oligodendrocyte	myelinating oligodendrocyte	oligodendrocyte		myelinating
+myeloid cell	myeloid cell	myeloid 	myeloid		
+myeloid progenitor cell	myeloid cell	progenitor myeloid	myeloid	progenitor	
+myocyte	myocyte	myocyte	myocyte		
+myoepithelial cell	myoepithelial cell	myoepithelial 	myoepithelial		
+myofibroblast	myofibroblast	myofibroblast	myofibroblast		
+myogenic precursor cell	myogenic precursor cell	progenitor muscle 	muscle		progenitor
+natural killer cell	natural killer cell	natural killer 	killer	natural	
+nephrogenic mesenchyme cell	nephrogenic mesenchyme cell	nephrogenic mesenchyme 	mesenchymal	nephrogenic	
+neuroendocrine cell	neuroendocrine cell	neuroendocrine 	neuroendocrine		
+neuron	neuron	neuron	neuron		
+neutriophil	neutrophil	neutrophil	neutrophil		
+neutrophil	neutrophil	neutrophil	neutrophil		
+nk cell	nk cell	nk 	nk		
+oligodendrocyte	oligodendrocyte	oligodendrocyte	oligodendrocyte		
+oligodendrocyte progenitor cell	oligodendrocyte	progenitor oligodendrocyte	oligodendrocyte		progenitor
+osteoblast	osteoblast	osteoblast	osteoblast		
+osteoclast	osteoclast	osteoclast	osteoclast		
+oviductal epithelial cell	epithelial cell	oviductal epithelial	epithelial	oviductal	
+paneth cell	paneth cell	paneth 	paneth		
+parietal cell	parietal cell	parietal 	parietal		
+pericyte	pericyte	pericyte	pericyte		
+pit cell	pit cell	pit 	pit		
+plasmacytoid dendritic cell	plasmacytoid dendritic cell	plasmacytoid dendritic 	dendritic	plasmacytoid	
+podocyte	podocyte	podocyte	podocyte		
+pre b cell	b cell	b 	b		
+primordial germ cell	primordial germ cell	intra-adrenal_ganglion primordial_germ	germ	intra-adrenal_ganglion	primordial
+principle cell	principle cell	principle 	principle		
+proliferating alveolar bipotent progenitor cell	proliferating alveolar bipotent progenitor cell	proliferating bipotent_progenitor alveolar 	bipotent_progenitor	proliferating	
+proliferating b cell	b cell	proliferating b	b	proliferating	
+proliferating cell	proliferating cell	proliferating 	proliferating 		
+proliferating endothelial cell	endothelial cell	proliferating endothelial 	endothelial	proliferating	
+proliferating fibroblast	fibroblast	proliferating fibroblast	fibroblast	proliferating	
+proliferating intra-adrenal ganglion neuron	neuron	proliferating intra-adrenal_ganglion neuron	neuron	intra-adrenal_ganglion	proliferating
+proliferating keratinocyte	keratinocyte	proliferating keratinocyte	keratinocyte	proliferating	
+proliferating lung mesenchyme cell	proliferating lung mesenchyme cell	proliferating lung_mesenchyme 	lung_mesenchyme	proliferating	
+proliferating mesothelial cell	mesothelial cell	proliferating mesothelial 	mesothelial		proliferating
+proliferating monocyte	monocyte	proliferating monocyte	monocyte		proliferating
+proliferating radial glia	proliferating radial glia	proliferating radial glia	glia	radial	proliferating
+proliferating smooth muscle cell	muscle cell	proliferating smooth muscle	muscle	smooth	proliferating
+proliferating stromal cell	stromal cell	proliferating stromal	stromal		proliferating
+proliferating t cell	t cell	proliferating t	t		proliferating
+proximal progenitor cell	proximal progenitor cell	progenitor proximal 	proximal_tubule		progenitor
+proximal tubule cell	proximal tubule cell	proximal tubule 	tubule	proximal	
+proximal tubule progenitor cell	proximal tubule progenitor cell	progenitor proximal_tubule 	tubule	proximal	progenitor
+purkinje cell	purkinje cell	purkinje 	purkinje		
+radial glia	radial glia	radial glia	glia	radial	
+retinal pigment epithelal cell	pigment cell	retinal_pigment epithelial	epithelial	retinal_pigment	
+retinal progenitor cell	retinal progenitor cell	retinal progenitor 	retinal		progenitor
+secretory epithelial cell	secretory cell	secretory epithelial	epithelial	secretory	
+secretory cell	secretory cell	secretory cell	secretory		
+sertoli cell	sertoli cell	sertoli 	sertoli		
+sinusoidal endothelial cell	endothelial cell	sinusoidal endothelial 	endothelial	sinusoidal	
+smooth muscle cell	smooth muscle cell	smooth muscle 	muscle	smooth	
+spermatocyte	spermatocyte	spermatocyte	spermatocyte		
+s-shaped body cell	s-shaped body cell	s-shaped_body 	s-shaped_body		
+s-shaped body medial cell	s-shaped body medial cell	s-shaped_body_medial 	s-shaped_body	medial	
+stomach fundus cell	stomach fundus cell	stomach_fundus 	stomach_fundus		
+striated muscle cell	striated muscle cell	striated muscle	muscle	striated	
+stromal cell	stromal cell	stromal 	stromal		
+superficial cell	superficial cell	superficial 	superficial		
+sympathetic neuron	sympathetic neuron	sympathetic neuron	neuron	sympathetic	
+syncytiotrophoblast	syncytiotrophoblast cell	syncytiotrophoblast 	syncytiotrophoblast		
+syncytiotrophoblast cell	syncytiotrophoblast cell	syncytiotrophoblast 	syncytiotrophoblast		
+t cell	t cell	t 	t		
+tendon cell	tendon cell	tendon 	tendon		
+theca cell	theca cell	theca 	theca		
+thyroid follicular cell	thyroid follicular cell	thyroid follicular 	follicular	thyroid	
+treg cell	treg cell	treg 	treg		
+unknown	unknown	unknown	unknown		
+unknown epithelial cell	epithelial cell	epithelial 	epithelial		
+ureteric bud cell	ureteric bud cell	bud ureteric	ureteric	bud	
+ureteric epithelial cell	epithelial cell	ureteric epithelial 	epithelial	ureteric	
+ureteric smooth muscle cell	muscle cell	muscle 	muscle		
+urothelial cell	urothelial cell	urothelial 	urothelial		
+vascular endothelial cell	endothelial cell	vascular endothelial 	endothelial	vascular	
+vascular epithelial cell	epithelial cell	vascular epithelial	epithelial	vascular	
+vascular smooth muscle cell	muscle cell	vascular smooth muscle	muscle	smooth	vascular
+ventricle cardiomyocyte	ventricle cardiomyocyte	ventricle cardiomyocyte	cardiomyocyte	ventricle	
+villous trophoblast cell	trophoblast cell	villous trophoblast	trophoblast	villous	
+zona fasciculata cell	zona fasciculata cell	zona fasciculata 	fasciculata	zona	
+acinar cell_clps high	acinar cell	acinar	acinar	clps high	
+acinar cell_cpa1 high	acinar cell	acinar	acinar	cpa1 high	
+acinar cell_cpa2 high	acinar cell	acinar	acinar	cpa2 high	
+acinar cell_reg1b high	acinar cell	acinar	acinar	reg1b high	
+acniar cell_anxa4 high	acinar cell	acinar	acinar	anxa4 high	
+activative t cell	t cell	t cell	t	activative	
+actived t cell	t cell	t cell	t	actived	
+adrenocortical cell_nov high	adrenocortical cell	adrenocortical 	adrenocortical	nov high	
+adrenocortical cell_tpm2 high			adrenocortical	tpm2 high	
+arterial endothelial cell_gja5 high	endothelial cell		endothelial	arterial gja5 high	
+atrial cardiomyocyte_mt high			cardiomyocyte	atrial mt high	
+atrial cardiomyocyte_myh6 high			cardiomyocyte	atrial myh6 high	
+atrial cardiomyocyte_nppa high			cardiomyocyte	atrial nppa high	
+b cell (plasmocyte)_igha high			b	plasmocyte	igha high
+b cell (plasmocyte)_igha/hg high			b	plasmocyte	igha/hg high
+b cell (plasmocyte)_igha/hm high			b	plasmocyte	igha/hm high
+b cell (plasmocyte)_igha/hm_igk high			b	plasmocyte	igk high
+b cell (plasmocyte)_igha/hm_igl high			b	plasmocyte	igl high
+b cell (plasmocyte)_igha_igk high			b	plasmocyte	igk high
+b cell (plasmocyte)_igha_igl high			b	plasmocyte	igl high
+b cell (plasmocyte)_ighg high			b	plasmocyte	ighg high
+b cell (plasmocyte)_ighg/ha high			b	plasmocyte	ighg/ha high
+b cell (plasmocyte)_ighg/ha_igk high			b	plasmocyte	igk high
+b cell (plasmocyte)_ighg_igk high			b	plasmocyte	igk high
+b cell (plasmocyte)_ighg_igl high			b	plasmocyte	igl high
+b cell (plasmocyte)_ighg3 high			b	plasmocyte	ighg3 high
+b cell (plasmocyte)_ighm/ha_igk high			b	plasmocyte	igk high
+b cell (plasmocyte)_ighm/ha_igl high			b	plasmocyte	igl high
+b cell (plasmocyte)_ighm/hg high			b	plasmocyte	ighm/hg high
+b cell (plasmocyte)_iglv3-1 high			b	plasmocyte	iglv3-1 high
+b cell(centrocyte)_iglc2 high			b	plasmocyte	iglc2 high
+b cell(centrocyte)_igll1 high			b	plasmocyte	igll1 high
+b cell(plasmocyte)_igha1 high			b	plasmocyte	igha1 high
+b cell(plasmocyte)_ighg1 high			b	plasmocyte	ighg1 high
+b cell(plasmocyte)_ighg3 high			b	plasmocyte	ighg3 high
+b cell(plasmocyte)_ighg4 high			b	plasmocyte	ighg4 high
+b cell(plasmocyte)_ighm high			b	plasmocyte	ighm high
+b cell(plasmocyte)_igkc high			b	plasmocyte	igkc high
+b cell(plasmocyte)_iglc3 high			b	plasmocyte	iglc3 high
+b cell(plasmocyte)_igll5 high			b	plasmocyte	igll5 high
+b cell_contamination			b	contamination	
+b cell_ighg2 high			b	ighg2 high	
+b cell_iglc2 high			b	iglc2 high	
+b cell_jchain high			b	jchain high	
+basal  cell			basal	basal  cell	
+basal cell_krt6a high			basal	krt6a high	
+cd4_t cell			t	cd4	
+cd8_t cell			t	cd8	
+chondrocyte_cytl1 high			chondrocyte	cytl1 high	
+chondrocyte_panx3 high			chondrocyte	panx3 high	
+chromaffin cell_spock3 high			chromaffin	spock3 high	
+chromaffin cell_vip high			chromaffin	vip high	
+ciliated  epithelial cell			ciliated	ciliated  epithelial cell	
+club cell_bpifb1 high			club	bpifb1 high	
+club cell_klk11 high			club	klk11 high	
+collecting duct cell_crabp1 high			duct	collecting	crabp1 high
+conventional dendritic cell_fecer1a high			dendritic	conventional	fecer1a high
+conventional dendritic cell_il8 high			dendritic	conventional	il8 high
+cytotrophoblast_page4 high			cytotrophoblast	page4 high	
+cytotrophoblast_peg10 high			cytotrophoblast	peg10 high	
+dendritic cell_cpvl high			dendritic	cpvl high	
+dendritic cell_fcer1a high			dendritic	fcer1a high	
+dendritic cell_hla-dra high			dendritic	hla-dra high	
+dendritic cell_lgals2 high			dendritic	lgals2 high	
+dendritic cell_lyz high			dendritic	lyz high	
+dendritic cell_wdfy4 high			dendritic	wdfy4 high	
+distal tubule cell_slc12a3 high			tubule	distal slc12a3 high	
+endothelial  cell			endothelial	endothelial  cell	
+endothelial cell_a2m high			endothelial	a2m high	
+endothelial cell_ackr1 high			endothelial	ackr1 high	
+endothelial cell_apc			endothelial	apc	
+endothelial cell_aplnr high			endothelial	aplnr high	
+endothelial cell_ccl2 high			endothelial	ccl2 high	
+endothelial cell_ccl21 high			endothelial	ccl21 high	
+endothelial cell_col15a1 high			endothelial	col15a1 high	
+endothelial cell_col4a1 high			endothelial	col4a1 high	
+endothelial cell_emcn high			endothelial	emcn high	
+endothelial cell_esam high			endothelial	esam high	
+endothelial cell_esm1 high			endothelial	esm1 high	
+endothelial cell_fabp4 high			endothelial	fabp4 high	
+endothelial cell_gja4 high			endothelial	gja4 high	
+endothelial cell_igfbp3 high			endothelial	igfbp3 high	
+endothelial cell_igfbp5 high			endothelial	igfbp5 high	
+endothelial cell_il6 high			endothelial	il6 high	
+endothelial cell_neat1 high			endothelial	neat1 high	
+endothelial cell_nts high			endothelial	nts high	
+endothelial cell_plvap high			endothelial	plvap high	
+endothelial cell_podxl high			endothelial	podxl high	
+endothelial cell_sele high			endothelial	sele high	
+endothelial cell_socs3 high			endothelial	socs3 high	
+endothelial cell_sparcl1 high			endothelial	sparcl1 high	
+endothelial cell_stc1 high			endothelial	stc1 high	
+endothelial cell_tm4sf1 high			endothelial	tm4sf1 high	
+endothelial cell_tmem100 high			endothelial	tmem100 high	
+endothelial cell_vwf high			endothelial	vwf high	
+enterocyte progenitor_apoa4 high			enterocyte	progenitor	apoa4 high
+enterocyte progenitor_apoc3 high			enterocyte	progenitor	apoc3 high
+enterocyte progenitor_guca2b high			enterocyte	progenitor	guca2b high
+enterocyte progenitor_olfm4 high			enterocyte	progenitor	olfm4 high
+enterocyte progenitor_reg1a high			enterocyte	progenitor	reg1a high
+enterocyte progenitor_tspan8 high			enterocyte	progenitor	tspan8 high
+enterocyte_agr2 high			enterocyte	agr2 high	
+enterocyte_apoa1 high			enterocyte	apoa1 high	
+enterocyte_apoa4 high			enterocyte	apoa4 high	
+enterocyte_best4 high			enterocyte	best4 high	
+enterocyte_ca1 high			enterocyte	ca1 high	
+enterocyte_ca7 high			enterocyte	ca7 high	
+enterocyte_fabp1 low			enterocyte	fabp1 low	
+enterocyte_guca2a high			enterocyte	guca2a high	
+enterocyte_mt gene high			enterocyte	mt gene high	
+enterocyte_otop2 high			enterocyte	otop2 high	
+enterocyte_phgr1 high			enterocyte	phgr1 high	
+enterocyte_rbp2 high			enterocyte	rbp2 high	
+enterocyte_rn7sk high			enterocyte	rn7sk high	
+enterocyte_selenbp1 high			enterocyte	selenbp1 high	
+enterocyte_slc26a3 high			enterocyte	slc26a3 high	
+epithelial cell_ccl21 high			epithelial	ccl21 high	
+epithelial cell_ccnb1 high			epithelial	ccnb1 high	
+epithelial cell_cd24 high			epithelial	cd24 high	
+epithelial cell_clca1 high			epithelial	clca1 high	
+epithelial cell_cystm1 high			epithelial	cystm1 high	
+epithelial cell_edn1 high			epithelial	edn1 high	
+epithelial cell_fabp1 high			epithelial	fabp1 high	
+epithelial cell_hp high			epithelial	hp high	
+epithelial cell_igfbp5 high			epithelial	igfbp5 high	
+epithelial cell_itln high			epithelial	itln high	
+epithelial cell_krt13 high			epithelial	krt13 high	
+epithelial cell_krt14 high			epithelial	krt14 high	
+epithelial cell_krt16 high			epithelial	krt16 high	
+epithelial cell_krt17 high			epithelial	krt17 high	
+epithelial cell_krt4 high			epithelial	krt4 high	
+epithelial cell_krt7 high			epithelial	krt7 high	
+epithelial cell_mmp10 high			epithelial	mmp10 high	
+epithelial cell_mmp7 high			epithelial	mmp7 high	
+epithelial cell_mt1g high			epithelial	mt1g high	
+epithelial cell_mt1l high			epithelial	mt1l high	
+epithelial cell_nr4a2 high			epithelial	nr4a2 high	
+epithelial cell_pla2g2a high			epithelial	pla2g2a high	
+epithelial cell_s100a2 high			epithelial	s100a2 high	
+epithelial cell_scgb3a1 high			epithelial	scgb3a1 high	
+epithelial cell_tm4sf4 high			epithelial	tm4sf4 high	
+epithelial cell_tppp3 high			epithelial	tppp3 high	
+epithelial_cell_nupr1 high			epithelial	nupr1 high	
+erythroid cell__hbd high			erythroid	hbd high	
+erythroid cell_ahsp high			erythroid	ahsp high	
+erythroid cell_hba1 high			erythroid	hba1 high	
+erythroid cell_hbb high			erythroid	hbb high	
+erythroid cell_hbb_high			erythroid	high	
+erythroid cell_hbe1 high			erythroid	hbe1 high	
+erythroid cell_hbm high			erythroid	hbm high	
+erythroid cell_hbz high			erythroid	hbz high	
+erythroid cell_hbz_high			erythroid	high	
+erythroid cell_prdx2 high			erythroid	prdx2 high	
+erythroid cell_slc4a1 high			erythroid	slc4a1 high	
+erythroid progenitor cell_npm1 high			erythroid	progenitor	npm1 high
+erythroid progenitor cell_rexo2 high			erythroid	progenitor	rexo2 high
+es_anxa1 high			es	anxa1 high	
+es_s100a6 high			es	s100a6 high	
+es_terf1 high			es	terf1 high	
+exocrine cell_saa1 high			exocrine	saa1 high	
+extravillous trophoblast_aoc1 high			extravillous	aoc1 high	
+extravillous trophoblast_hpgd high			extravillous	hpgd high	
+extravillous trophoblast_lair2 high			extravillous	lair2 high	
+extravillous trophoblast_mmp12 high			extravillous	mmp12 high	
+extravillous trophoblast_notum high			extravillous	notum high	
+extravillous trophoblast_timp3 high			extravillous	timp3 high	
+fenestrated endothelial cell_emcn high			endothelial	fenestrated	emcn high
+fenestrated endothelial cell_sele high			endothelial	fenestrated	sele high
+fibroblast cell_mfap5 high			fibroblast	mfap5 high	
+fibroblast_ cxcl12 high			fibroblast	 cxcl12 high	
+fibroblast_a2m high			fibroblast	a2m high	
+fibroblast_apod high			fibroblast	apod high	
+fibroblast_col1a1 high			fibroblast	col1a1 high	
+fibroblast_col3a1 high			fibroblast	col3a1 high	
+fibroblast_col5a2 high			fibroblast	col5a2 high	
+fibroblast_dcn high			fibroblast	dcn high	
+fibroblast_efemp1 high			fibroblast	efemp1 high	
+fibroblast_fbln1 high			fibroblast	fbln1 high	
+fibroblast_fndc1 high			fibroblast	fndc1 high	
+fibroblast_hmgb2 high			fibroblast	hmgb2 high	
+fibroblast_ibsp_high			fibroblast	high	
+fibroblast_lum high			fibroblast	lum high	
+fibroblast_mfap4 high			fibroblast	mfap4 high	
+fibroblast_mfap5 high			fibroblast	mfap5 high	
+fibroblast_mgp high			fibroblast	mgp high	
+fibroblast_mgp_high			fibroblast	high	
+fibroblast_penk high			fibroblast	penk high	
+fibroblast_postn high			fibroblast	postn high	
+fibroblast_ptx3 high			fibroblast	ptx3 high	
+fibroblast_sfpr4 high			fibroblast	sfpr4 high	
+fibroblast_sfrp high			fibroblast	sfrp high	
+fibroblast_zfand2a high			fibroblast	zfand2a high	
+gastric chief cell_chia high			gastric_chief	chia high	
+gastric chief cell_mt high			gastric_chief	mt high	
+gastric chief cell_pga3 high			gastric_chief	pga3 high	
+glomerular endothelial cell_aqp1 high			endothelial	glomerular	aqp1 high
+goblet cell_fcgbp high			goblet	fcgbp high	
+goblet cell_pigr high			goblet	pigr high	
+hepatocyte_fgb high			hepatocyte	fgb high	
+hepatocyte_gsta1 high			hepatocyte	gsta1 high	
+hepatocyte_hp high			hepatocyte	hp high	
+hepatocyte_tf high			hepatocyte	tf high	
+inflammatory stromal cell_hspa1a high			stromal	inflammatory	hspa1a high
+inflammatory stromal cell_mt-rnr2 high			stromal	inflammatory	mt-rnr2 high
+inflammed  epithelial cell			epithelial	inflammed	
+intercalated cell_slc26a4 high			intercalated	slc26a4 high	
+intercalated cell_spink1 high			intercalated	spink1 high	
+interstitial cell_postn high			interstitial	postn high	
+interstitial cell_ptn high			interstitial	ptn high	
+leydig cell	leydig cell	leydig cell	leydig		
+loop of henle _anxa1 high			loop of henle	anxa1 high	
+loop of henle _kng1 high			loop of henle	kng1 high	
+loop of henle _umod high			loop of henle	umod high	
+loop of henle_sfn high			loop of henle	sfn high	
+loop of henle_slpi high			loop of henle	slpi high	
+loop of henle_sod3 high			loop of henle	sod3 high	
+loop of henle_spp1 high			loop of henle	spp1 high	
+lymphatic endothelial cell_ccl21 high			endothelial	lymphatic	ccl21 high
+lymphatic endothelial cell_nts high			endothelial	lymphatic	nts high
+m1 macrophage_ccl2_high			macrophage	m1	ccl2_high
+m1 macrophage_cxcl8_high			macrophage	m1	cxcl8_high
+m2 macrophage_cxcl8 high			macrophage	m2	cxcl8_high
+m2 macrophage_malat1 high			macrophage	m2	malat1_high
+macrophage_apoc1 high			macrophage	apoc1 high	
+macrophage_c1qb high			macrophage	c1qb high	
+macrophage_ccl20 high			macrophage	ccl20 high	
+macrophage_ccl3l3 high			macrophage	ccl3l3 high	
+macrophage_cd52 high			macrophage	cd52 high	
+macrophage_ctsb high			macrophage	ctsb high	
+macrophage_cxcl2 high			macrophage	cxcl2 high	
+macrophage_cxcl8 high			macrophage	cxcl8 high	
+macrophage_fabp5 high			macrophage	fabp5 high	
+macrophage_fcgr3a high			macrophage	fcgr3a high	
+macrophage_gpr183 high			macrophage	gpr183 high	
+macrophage_hla-dra high			macrophage	hla-dra high	
+macrophage_il1b high			macrophage	il1b high	
+macrophage_m2			macrophage	m2	
+macrophage_rgs1 high			macrophage	rgs1 high	
+macrophage_rnase1 high			macrophage	rnase1 high	
+macrophage_sds high			macrophage	sds high	
+macrophage_spp1 high			macrophage	spp1 high	
+macrophage_tpsb2 high			macrophage	tpsb2 high	
+macrophage_vsig4 high			macrophage	vsig4 high	
+melanocyte_mlana high			melanocyte	mlana high	
+melanocyte_s100b high			melanocyte	s100b high	
+mesenchymal  cell			mesenchymal		
+mesothelial cell_cpa3 high			mesothelial	cpa3 high	
+mesothelial cell_itln high			mesothelial	itln high	
+mesothelial cell_mt gene high			mesothelial	mt gene high	
+microglia_alox5ap high			microglia	alox5ap high	
+microglia_c3 high			microglia	c3 high	
+microglia_spp1_high			microglia	high	
+monocyte_cxcl8 high			monocyte	cxcl8 high	
+monocyte_cxcr2 high			monocyte	cxcr2 high	
+monocyte_fcgr3a high			monocyte	fcgr3a high	
+monocyte_ftl high			monocyte	ftl high	
+monocyte_ighg4 high			monocyte	ighg4 high	
+monocyte_isg15 high			monocyte	isg15 high	
+monocyte_s100a12 high			monocyte	s100a12 high	
+monocyte_s100a9 high			monocyte	s100a9 high	
+monocyte_tppp3 high			monocyte	tppp3 high	
+mucous epithelial cell_reg1a high			epithelial	mucous	reg1a high
+mucous epithelial cell_tff1 high			epithelial	mucous	tff1 high
+multipotential  progenitor cell			multipotential	progenitor	
+myofibroblast_eln high			myofibroblast	eln high	
+myofibroblast_postn high			myofibroblast	postn high	
+myofibroblast_tagln high			myofibroblast	tagln high	
+nephrogenic mesenchyme cell_dapl1 high			mesenchymal	nephrogenic	dapl1 high
+neuroendocrine cell_acpp high			neuroendocrine	acpp high	
+neuroendocrine cell_ccl21 high			neuroendocrine	ccl21 high	
+neuroendocrine cell_sst high			neuroendocrine	sst high	
+neuron_gap43 high			neuron	gap43 high	
+neuron_linc00682 high			neuron	linc00682 high	
+neuron_neurod6 high			neuron	neurod6 high	
+neuron_penk high			neuron	penk high	
+neuron_plp1 high			neuron	plp1 high	
+neuron_ppp1r17 high			neuron	ppp1r17 high	
+neuron_reln high			neuron	reln high	
+neuron_s100b high			neuron	s100b high	
+neuron_tmem233 high			neuron	tmem233 high	
+neuron_xpr1 high			neuron	xpr1 high	
+neutriophil 			neutrophil		
+neutrophil  			neutrophil		
+neutrophil _s100a8 high			neutrophil	s100a8 high	
+neutrophil__s100a12 high			neutrophil	s100a12 high	
+neutrophil_camp high			neutrophil	camp high	
+neutrophil_camp_high			neutrophil	high	
+neutrophil_cd177 high			neutrophil	cd177 high	
+neutrophil_cxcl3 high			neutrophil	cxcl3 high	
+neutrophil_defa3 high			neutrophil	defa3 high	
+neutrophil_defa4 high			neutrophil	defa4 high	
+neutrophil_defa4_high			neutrophil	high	
+neutrophil_elane high			neutrophil	elane high	
+neutrophil_fcgr3b high			neutrophil	fcgr3b high	
+neutrophil_il1b high			neutrophil	il1b high	
+neutrophil_lcn2 high			neutrophil	lcn2 high	
+neutrophil_ltf high			neutrophil	ltf high	
+neutrophil_lyz high			neutrophil	lyz high	
+neutrophil_mmp high			neutrophil	mmp high	
+neutrophil_mmp9 high			neutrophil	mmp9 high	
+neutrophil_mpo high			neutrophil	mpo high	
+neutrophil_mpo_high			neutrophil	high	
+neutrophil_olfm4 high			neutrophil	olfm4 high	
+neutrophil_olfm42 high			neutrophil	olfm42 high	
+neutrophil_prtn3 high			neutrophil	prtn3 high	
+neutrophil_rnase2 high			neutrophil	rnase2 high	
+neutrophil_s100a12 high			neutrophil	s100a12 high	
+neutrophil_s100a8 high			neutrophil	s100a8 high	
+neutrophil_s100a9 high			neutrophil	s100a9 high	
+neutrophil_s100p high			neutrophil	s100p high	
+oligodendrocyte_mt gene high			oligodendrocyte	mt gene high	
+oligodendrocyte_tf high			oligodendrocyte	tf high	
+osteoblast_ibsp high			osteoblast	ibsp high	
+osteoclast_acp5 high			osteoblast	acp5 high	
+oviductal epithelial  cell			epithelial	oviductal	
+paneth cell_defa5 high			paneth	defa5 high	
+paneth cell_reg3a high			paneth	reg3a high	
+parietal cell_atp4b high			parietal	atp4b high	
+parietal cell_gif high			parietal	gif high	
+pigment cell	pigment cell	pigment cell	pigment		
+pit cell_foxq1 high			pit	foxq1 high	
+pit cell_muc6 high			pit	muc6 high	
+pit cell_tff2 high			pit	tff2 high	
+pit cell_wfdc21p high			pit	wfdc21p high	
+primordial germ cell 			primordial germ		
+primordial germ cell_gtsf1 high			primordial germ	gtsf1 high	
+primordial germ cell_tcl1a high			primordial germ	tcl1a high	
+proliferating  b cell			b	proliferating	
+proliferating  cell			proliferating		
+proliferating  keratinocyte			keratinocyte	proliferating	
+proliferating cell_c7 high			proliferating	c7 high	
+proliferating cell_ccnb1 high			proliferating	ccnb1 high	
+proliferating cell_fabp5 high			proliferating	fabp5 high	
+proliferating cell_hmgb2 high			proliferating	hmgb2 high	
+proliferating cell_kiaa0101 high			proliferating	kiaa0101 high	
+proliferating cell_kiaa0101_high			proliferating	high	
+proliferating cell_pttg1 high			proliferating	pttg1 high	
+proliferating cell_top2a high			proliferating	top2a high	
+proliferating cell_ube2c  high			proliferating	ube2c  high	
+proliferating cell_ube2c high			proliferating	ube2c high	
+proliferating cell_ube2c_high			proliferating	ube2c high	
+proliferating lung mesenchyme cell_hist1h4c high			mesenchymal	lung	proliferating hist1h4c high
+proliferating lung mesenchyme cell_ube2c high			mesenchymal	lung	proliferating ube2c high
+proximal progenitor cell_grp high			proximal	progenitor	grp high
+proximal progenitor cell_scgb3a2 high			proximal tubule		scgb3a2 high
+proximal tubule cell_aldob high			proximal tubule		aldob high
+proximal tubule cell_mt1g high			proximal tubule		mt1g high
+proximal tubule cell_sox4 high			proximal tubule		sox4 high
+radial glia_hes1 high			glia	radial	hes1 high
+radial glia_hes1_high			glia	radial	high
+retinal pigment epithelal cell_mlana high			epithelial	retinal pigment	mlana high
+retinal progenitor cell_atp1a2 high			retinal	progenitor	atp1a2 high
+retinal progenitor cell_fabp7 high			retinal	progenitor	fabp7 high
+sertoli cell_dlk1 high			sertoli	dlk1 high	
+sinusoidal endothelial cell_fcn1 high			endothelial	sinusoidal	fcn1 high
+smooth muscel cell			muscle	smooth	
+smooth muscle cell_acta2 high			muscle	smooth	acta2 high
+smooth muscle cell_actg2 high			muscle	smooth	actg2 high
+smooth muscle cell_adirf high			muscle	smooth	adirf high
+smooth muscle cell_ccl19 high			muscle	smooth	ccl19 high
+smooth muscle cell_ccl4l2 high			muscle	smooth	ccl4l2 high
+smooth muscle cell_cycs high			muscle	smooth	cycs high
+smooth muscle cell_myl9 high			muscle	smooth	myl9 high
+smooth muscle cell_mylk high			muscle	smooth	mylk high
+smooth muscle cell_pdk4 high			muscle	smooth	pdk4 high
+smooth muscle cell_tagln high			muscle	smooth	tagln high
+soomth muscle cell			muscle	smooth	
+s-shaped body cell_cfap126 high			s-shaped body	cfap126 high	
+s-shaped body cell_linc01158 high			s-shaped body	linc01158 high	
+stromal cell_apod high			stromal	apod high	
+stromal cell_aspn high			stromal	aspn high	
+stromal cell_clec3b high			stromal	clec3b high	
+stromal cell_col1a1 high			stromal	col1a1 high	
+stromal cell_col3a1 high			stromal	col3a1 high	
+stromal cell_cxcl14 high			stromal	cxcl14 high	
+stromal cell_dcn high			stromal	dcn high	
+stromal cell_errfi1 high			stromal	errfi1 high	
+stromal cell_gpx3 high			stromal	gpx3 high	
+stromal cell_hes1 high			stromal	hes1 high	
+stromal cell_lox high			stromal	lox high	
+stromal cell_lum high			stromal	lum high	
+stromal cell_mfap4 high			stromal	mfap4 high	
+stromal cell_mfap5 high			stromal	mfap5 high	
+stromal cell_mgp high			stromal	mgp high	
+stromal cell_pcp4 high			stromal	pcp4 high	
+stromal cell_pla2g2a high			stromal	pla2g2a high	
+stromal cell_prg4 high			stromal	prg4 high	
+stromal cell_ptgds high			stromal	ptgds high	
+stromal cell_ptgds_high			stromal	high	
+stromal cell_sfrp2 high			stromal	sfrp2 high	
+stromal cell_sult1e1 high			stromal	sult1e1 high	
+stromal cell_tslp high			stromal	tslp high	
+t cell_ccl4 high			t	ccl4 high	
+t cell_ccl5 high			t	ccl5 high	
+t cell_gnly high			t	gnly high	
+t cell_gzma high			t	gzma high	
+t cell_ifng high			t	ifng high	
+t cell_il7r high			t	il7r high	
+t cell_leprotl1 high			t	leprotl1 high	
+t cell_trac high			t	trac high	
+tendon cell_gcg high			tendon	gcg high	
+trophoblast cell	trophoblast cell	trophoblast cell	trophoblast		
+unknown epithelial cell_efna1 high			epithelial	unknown	efna1 high
+unknown epithelial cell_fos high			epithelial	unknown	fos high
+unknown1			unknown	unknown1	
+unknown2			unknown	unknown2	
+urothelial cell 			urothelial	urothelial cell	
+vascular endothelial cell_a2m high			endothelial	vascular	a2m high
+vascular endothelial cell_aqp1 high			endothelial	vascular	aqp1 high
+vascular endothelial cell_cd34 high			endothelial	vascular	cd34 high
+vascular endothelial cell_fabp4 high			endothelial	vascular	fabp4 high
+vascular endothelial cell_fabp5 high			endothelial	vascular	fabp5 high
+vascular endothelial cell_igfbp3 high			endothelial	vascular	igfbp3 high
+vascular endothelial cell_sele high			endothelial	vascular	sele high
+vascular endothelial cell_vwf high			endothelial	vascular	vwf high
+ventricle cardiomyocyte_csrp3 high			cardiomyocyte	ventricle	csrp3 high
+ventricle cardiomyocyte_mb high			cardiomyocyte	ventricle	mb high
+ventricle cardiomyocyte_mt gene high			cardiomyocyte	ventricle	mt gene high
+ventricle cardiomyocyte_myl2 high			cardiomyocyte	ventricle	myl2 high
+zona fasciculata cell_cyp11b2 high			zona fasciculata	cyp11b2 high	
+zona fasciculata cell_fdx1 high			zona fasciculata	fdx1 high	
+zona fasciculata cell_gsta1 high			zona fasciculata	gsta1 high	
+zona fasciculata cell_hsd3b2 high			zona fasciculata	hsd3b2 high	
+adipocyte_spp1 high			adipocyte	spp1 high	
+adipocyte _fgr high			adipocyte	fgr high	
+stromal cell_nov high			stromal	nov high	
+urothelial cell 			urothelial		
+neutrophil  			neutrophil		
+neutriophil 			neutrophil		
+primordial germ cell 			primordial germ		
