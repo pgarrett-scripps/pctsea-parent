@@ -1,0 +1,69 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    name: Quality and tests
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Show toolchain
+        run: rustc --version && cargo --version
+
+      - name: Check formatting
+        run: cargo fmt --all --check
+
+      - name: Run Clippy
+        run: cargo clippy --locked --all-targets -- -D warnings
+
+      - name: Run Rust tests
+        run: cargo test --locked --all-targets
+
+      - name: Run input adapter tests
+        run: python3 -m unittest discover -s tools -p 'test_*.py' -v
+
+      - name: Build release executable
+        run: cargo build --locked --release
+
+      - name: Test release packaging
+        run: >-
+          python3 scripts/package_release.py
+          --binary target/release/pctsea
+          --target x86_64-unknown-linux-gnu
+          --version ci
+          --output-dir target/release-package-check
+
+  native-tests:
+    name: Native tests on ${{ matrix.name }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Windows x86-64
+            os: windows-2025
+          - name: macOS Intel
+            os: macos-15-intel
+          - name: macOS Apple Silicon
+            os: macos-15
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Run Rust tests
+        run: cargo test --locked --all-targets

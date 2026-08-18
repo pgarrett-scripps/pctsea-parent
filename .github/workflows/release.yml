@@ -1,0 +1,82 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build ${{ matrix.name }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Linux x86-64
+            os: ubuntu-22.04
+            target: x86_64-unknown-linux-gnu
+            binary: target/x86_64-unknown-linux-gnu/release/pctsea
+          - name: Windows x86-64
+            os: windows-2025
+            target: x86_64-pc-windows-msvc
+            binary: target/x86_64-pc-windows-msvc/release/pctsea.exe
+          - name: macOS Intel
+            os: macos-15-intel
+            target: x86_64-apple-darwin
+            binary: target/x86_64-apple-darwin/release/pctsea
+          - name: macOS Apple Silicon
+            os: macos-15
+            target: aarch64-apple-darwin
+            binary: target/aarch64-apple-darwin/release/pctsea
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Verify tag and package versions
+        run: python scripts/check_release_version.py "${{ github.ref_name }}"
+
+      - name: Install target
+        run: rustup target add ${{ matrix.target }}
+
+      - name: Test
+        run: cargo test --locked --release --target ${{ matrix.target }}
+
+      - name: Build
+        run: cargo build --locked --release --target ${{ matrix.target }}
+
+      - name: Package
+        run: >-
+          python scripts/package_release.py
+          --binary "${{ matrix.binary }}"
+          --target "${{ matrix.target }}"
+          --version "${{ github.ref_name }}"
+          --output-dir dist
+
+      - name: Upload archive and checksum
+        uses: actions/upload-artifact@v7
+        with:
+          name: pctsea-${{ matrix.target }}
+          path: dist/*
+          if-no-files-found: error
+
+  publish:
+    name: Publish GitHub release
+    needs: build
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - name: Download release artifacts
+        uses: actions/download-artifact@v8
+        with:
+          path: dist
+          merge-multiple: true
+
+      - name: Create release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "${GITHUB_REF_NAME}" dist/* --generate-notes --verify-tag

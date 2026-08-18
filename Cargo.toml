@@ -1,0 +1,31 @@
+[package]
+name = "pctsea"
+version = "0.1.0"
+edition = "2024"
+license = "Apache-2.0"
+description = "File-backed proteomic cell-type enrichment analysis"
+repository = "https://github.com/pgarrett-scripps/pctsea-parent"
+homepage = "https://github.com/pgarrett-scripps/pctsea-parent"
+readme = "README.md"
+keywords = ["proteomics", "single-cell", "enrichment", "bioinformatics"]
+categories = ["command-line-utilities", "science"]
+
+[lib]
+name = "pctsea"
+path = "src/lib.rs"
+
+[[bin]]
+name = "pctsea"
+path = "src/main.rs"
+
+[dependencies]
+anndata = "0.7"
+anndata-hdf5 = "0.5"
+calamine = "0.36"
+hdf5 = { package = "hdf5-metno", version = "0.12" }
+polars = { version = "0.53", default-features = false }
+ureq = { version = "3.3", default-features = false, features = ["rustls"] }
+
+[profile.release]
+lto = "thin"
+strip = "symbols"

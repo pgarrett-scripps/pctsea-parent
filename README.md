@@ -1,89 +1,116 @@
-(Latest update of this document: Jul 28 2021)  
+# pCTSEA
 
-# Proteomics Cell Type Enrichment Analysis (PCTSEA)
+[![CI](https://github.com/pgarrett-scripps/pctsea-parent/actions/workflows/ci.yml/badge.svg)](https://github.com/pgarrett-scripps/pctsea-parent/actions/workflows/ci.yml)
 
-This tool has been designed to be a cell type enrichment tool for proteomics quantitative data.   
-It compares publicly available RNAseq single cell datasets with the input protein list and performs an enrichment analysis based on Kolmogorov-Smirnov statistics to end up determining the set of cell types that are significantly enriched in the input data.   
-   
-### Availability of the software:
-PCTSEA server can be found at http://pctsea.scripps.edu   
-PCTSEA is also available as a command line at http://sealion.scripps.edu/pCtSEA/  
-Source code of PCTSEA can be found in this GitHub repository: https://github.com/proteomicsyates/pctsea-parent   
- - [pctsea-core](https://github.com/proteomicsyates/pctsea-parent/tree/main/pctsea-core): source code of the core of its functionality
- - [pctsea-cl](https://github.com/proteomicsyates/pctsea-parent/tree/main/pctsea-cl): command-line version of the tool
- - [pctseaweb](https://github.com/proteomicsyates/pctsea-parent/tree/main/pctseaweb): web version of the tool  
- - [pctsea-results-viewer](https://github.com/proteomicsyates/pctsea-parent/tree/main/pctseaweb/shinyR): Shiny app for visualization of results.
- - [pctsea-results-comparator](https://github.com/proteomicsyates/pctsea-parent/tree/main/pctseaweb/shinyR_comparison): Shiny app for comparison of results.
-   
-   
-### BioRXiv publication:
-https://doi.org/10.1101/2021.02.16.431318   
-(Posted February 16, 2021)
+pCTSEA is a Rust command-line tool and library for proteomic cell-type
+enrichment analysis. It ranks single cells by similarity to a quantitative
+gene or protein query, then tests which cell types are concentrated near the
+top of the ranking.
 
+The tool reads H5AD/HDF5 directly. It does not require Java, R, MongoDB, or a
+running service.
 
+## Install
 
-## Implementation description:
-**pctsea-cl** and **pctseaweb** modules are build with SpringBoot framework and pctseaweb with [Vaadin](https://vaadin.com/).  
-There is a database storing the single cell expression values, implemented in [MongoDB](https://www.mongodb.com/).   
+Download the archive for your computer from the
+[GitHub Releases page](https://github.com/pgarrett-scripps/pctsea-parent/releases):
 
-## pctsea-cl, Command line version:  
-It is implemented with StringBoot framework. The class that contains the main method is PCTSEADbApplication.java that implements CommandLineRunner (SpringBoot).  
-In your IDE, you might have to run it as SpringBoot App
-![Run as Spring Boot App](https://github.com/proteomicsyates/pctsea-parent/raw/main/docs/runAsSpringBoot.png)
-Command line parameters are defined constants variables at InputParameters.java and used at PCTSEACommandLine.java where they are defined (*defineCommanLineOptions* method) and read (*initToolFromComamndLineOptions* method) so that they are passed to the *PCTSEA* object at *run* method. 
+| Computer | Release target |
+| --- | --- |
+| Linux x86-64 | `x86_64-unknown-linux-gnu` |
+| Windows x86-64 | `x86_64-pc-windows-msvc` |
+| Intel Mac | `x86_64-apple-darwin` |
+| Apple Silicon Mac | `aarch64-apple-darwin` |
 
-Example of parameters:  
-`
--perm 50 -eef Z:\share\Salva\data\cbamberg\mouse_GRIA_IP\mouse_GRIA_IP_gt10SPC.txt -min_score 0 -email salvador@scripps.edu -out pearson_ms0_mgc4_mc02_Bal -min_genes_cells 4 -min_corr 0.2 -datasets HCL -scoring_method PEARSONS_CORRELATION -input_data_type IP -create_zip true -write_scores --spring.data.mongodb.port=27017 --spring.data.mongodb.host=sealion.scripps.edu
-`  
-Note that parameters `--spring.data.mongodb.port=27017 --spring.data.mongodb.host=sealion.scripps.edu` are used to determine the connection to the MongoDB database. However, if these parameters are not provided, it will try port *27017* and host: *locahost* by default, which might be enough if you are running it in the same machine than the MongoDB is located.
+Each archive has a matching `.sha256` checksum file. The executable is named
+`pctsea` on Linux and macOS, and `pctsea.exe` on Windows.
 
-Using the command line version in an standalone GUI:  
-If you run the program with ***-gui*** parameter as:  
-`
--gui  --spring.data.mongodb.port=27017 --spring.data.mongodb.host=sealion.scripps.edu
-`  
-a Java-based interfaze is **automatically built** using the parameters defined. If new parameters are defined in *InputParameters* and *CommandLineRunner*, a new input text, or checkbox will be automatically created in this interfaze without the need of doing anything else:  
-![Command line GUI](https://github.com/proteomicsyates/pctsea-parent/raw/main/docs/pctsea-cli-gui.png)
+To build from source, install stable Rust and run:
 
-
-
-## pctseaweb, Web Application version:
-It is implemented with SpringBoot + Vaadin frameworks. The class with the main method is called *Application* and extends from *SpringBootServletInitializer* (SpringBoot).  
-The different tab menus in the web application are defined as **views** and are located under *edu.scripps.yates.pctsea.views* package. In order to incorporate more views just implement a new class as this one:
-```java
-@Route(value = "about", layout = MainView.class)
-@PageTitle("About")
-@CssImport("./styles/views/about/about-view.css")
-public class AboutView extends Div {
-	@Autowired
-	private PctseaRunLogRepository runRepo;
-
-	public AboutView() {
-	}
-
-	@PostConstruct
-	public void init() {
-		setId("about-view");
-		add(new Label("Proteomics Cell Type Set Enrichment Analysis (PCTSEA)"));
-   }
-}
+```bash
+cargo build --release --locked
+./target/release/pctsea --version
 ```
-And then, include it in the main view at **MainView.java** as:
-```java
-private static Tab[] getAvailableTabs() {
-   return new Tab[] { 
-      createTab("Home", HomeView.class), 
-      createTab("Analyze", AnalyzeView.class),
-	   createTab("Compare results", CompareResultsView.class), 
-      createTab("About", AboutView.class) };
-}
+
+## Quick start
+
+Download the official Human Cell Landscape expression matrix and its paired
+cell annotations:
+
+```bash
+pctsea atlas download hcl --output ./data/HCL_Fig1_adata.h5ad
 ```
-The "Analysis" page with the form to input the parameters and input file for analysis is built in *AnalyzeView.java* class. In this class, an object from class *InputParameters.java* is build when the user clicks on submit button. Some parameters of this object are automatically populated via Vaadin bind feature but others are set programatically at the *submit* method of *AnalyzeView.java* class. Once the *InputParameters* object is built, is passed to method *startPCTSEAAnalysis* to build the *PCTSEA* object and run the analysis.  
 
-## FLow chart:   
-![Flow chart](https://github.com/proteomicsyates/pctsea-parent/raw/main/docs/flow_chart.png)
+Run a query:
 
-Both command line and web version are coupled to the pctsea-core module where the ***PCTSEA.java*** class is defined and where the logic of the analysis is implemented.  
-For a more detailed description of how the analysis is implemented in this class go to: [PCTSEA for developers](https://github.com/proteomicsyates/pctsea-parent/wiki/PCTSEA-guide-for-developers)
+```bash
+pctsea analyze \
+  --atlas ./data/HCL_Fig1_adata.h5ad \
+  --input examples/t_cell_query.tsv \
+  --permutations 1000 \
+  --output results.tsv
+```
 
+The HCL download is about 811 MiB. If `--output` is omitted during download,
+pCTSEA uses `PCTSEA_DATA_DIR`, the platform data directory, or a local
+`.pctsea` fallback. Run `pctsea atlas path hcl` to print the resolved paths.
+
+## Query format
+
+Input is a tab-separated gene and quantitative value, with an optional header:
+
+```text
+gene    value
+CD3D    10
+CD3E    9
+TRBC1   8
+```
+
+Gene names are matched without regard to case. The score can be Pearson
+correlation, cosine similarity, or dot product. Run `pctsea help` for all
+analysis options.
+
+Protein-level inputs should be converted into this small canonical query
+format before analysis. The validation adapter in
+[`tools/prepare_proteomics_queries.py`](tools/prepare_proteomics_queries.py)
+maps UniProt accessions and can compute length-corrected NSAF values from
+spectral counts. See [`tools/README.md`](tools/README.md) for its assumptions.
+
+## Supported atlas formats
+
+- Modern H5AD files
+- The older dense Human Cell Landscape H5AD plus its official annotation file
+- Native sparse `.pctsea` files built from portable TSV data
+
+The native format is an optional import and cache format. H5AD remains the
+normal public atlas format.
+
+## Scientific status
+
+This is a new implementation, not a bit-for-bit port of the historical Java
+workflow. It uses weighted running-sum enrichment, deterministic label
+permutations, plus-one corrected p-values, and Benjamini-Hochberg FDRs. Results
+should be validated on reference datasets before publication.
+
+The scientific scope and validation policy are in
+[`DIRECTION.md`](DIRECTION.md).
+
+## Development and releases
+
+Pull requests and pushes to `main` run formatting, Clippy, Rust tests, Python
+adapter tests, a release build, and native tests on Windows and both Mac
+architectures.
+
+To publish a release:
+
+1. Update the version in `Cargo.toml`.
+2. Merge the change into `main`.
+3. Create and push the matching tag, such as `v0.1.0`.
+
+GitHub Actions verifies the tag, runs native release tests, builds all four
+archives, generates checksums, and creates the GitHub release. More local
+development commands are in [`CONTRIBUTING.md`](CONTRIBUTING.md).
+
+## License
+
+Apache License 2.0. See [`LICENSE`](LICENSE).
