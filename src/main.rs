@@ -1,7 +1,7 @@
 use pctsea::{
     AnalysisConfig, AnalysisResult, AnyAtlas, AtlasBuilder, Error, GeneQuery, HUMAN_CELL_LANDSCAPE,
-    HUMAN_CELL_LANDSCAPE_ANNOTATIONS, Result, ScoringMethod, analyze, default_atlas_path,
-    download_atlas,
+    HUMAN_CELL_LANDSCAPE_ANNOTATIONS, PlotConfig, Result, ScoringMethod, analyze,
+    default_atlas_path, download_atlas, enrichment_svg, html_report,
 };
 use std::collections::{HashMap, HashSet};
 use std::env;
@@ -241,6 +241,10 @@ fn run_analysis(options: &Options) -> Result<()> {
         "input",
         "output",
         "scores-output",
+        "posthoc-output",
+        "plot-output",
+        "plot-top",
+        "html-output",
         "method",
         "min-genes",
         "threshold",
@@ -277,10 +281,23 @@ fn run_analysis(options: &Options) -> Result<()> {
         .collect();
 
     let result = analyze(&atlas, &query, &config)?;
+    let plot_config = PlotConfig {
+        max_cell_types: options.parse_or("plot-top", 30)?,
+        ..PlotConfig::default()
+    };
     let output = options.get("output").unwrap_or("-");
     write_results(&result, output)?;
     if let Some(path) = options.get("scores-output") {
         write_scores(&result, path)?;
+    }
+    if let Some(path) = options.get("posthoc-output") {
+        write_post_hoc(&result, path)?;
+    }
+    if let Some(path) = options.get("plot-output") {
+        std::fs::write(path, enrichment_svg(&result, &plot_config))?;
+    }
+    if let Some(path) = options.get("html-output") {
+        std::fs::write(path, html_report(&result, &config, &plot_config))?;
     }
     eprintln!(
         "matched {} genes ({} missing); scored {}/{} cells; {} passed",
@@ -346,6 +363,39 @@ fn write_scores(result: &AnalysisResult, path: &str) -> Result<()> {
             score.score,
             score.genes_used,
             score.passes_threshold
+        )?;
+    }
+    writer.flush()?;
+    Ok(())
+}
+
+fn write_post_hoc(result: &AnalysisResult, path: &str) -> Result<()> {
+    let mut writer = BufWriter::new(File::create(path)?);
+    writeln!(
+        writer,
+        "# kruskal_wallis\tstatistic={}\tdf={}\tp={}",
+        number(result.score_distribution_test.statistic),
+        result.score_distribution_test.degrees_of_freedom,
+        number(result.score_distribution_test.p_value)
+    )?;
+    writeln!(
+        writer,
+        "cell_type_a\tcell_type_b\tcells_a\tcells_b\tmedian_score_a\tmedian_score_b\tmedian_difference\tdunn_z\tp_value\tfdr"
+    )?;
+    for comparison in &result.post_hoc_comparisons {
+        writeln!(
+            writer,
+            "{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}",
+            clean(&comparison.cell_type_a),
+            clean(&comparison.cell_type_b),
+            comparison.cells_a,
+            comparison.cells_b,
+            number(comparison.median_score_a),
+            number(comparison.median_score_b),
+            number(comparison.median_difference),
+            number(comparison.z_score),
+            number(comparison.p_value),
+            number(comparison.fdr)
         )?;
     }
     writer.flush()?;
@@ -468,6 +518,10 @@ pctsea analyze --atlas ATLAS.h5ad --input QUERY.tsv [OPTIONS]\n\n\
 ANALYZE OPTIONS:\n  \
 --output FILE             Cell-type results TSV; default is stdout\n  \
 --scores-output FILE      Optional ranked cell scores TSV\n  \
+--posthoc-output FILE     Optional Dunn pairwise comparisons TSV\n  \
+--plot-output FILE        Optional enrichment plot in SVG format\n  \
+--html-output FILE        Optional self-contained HTML report\n  \
+--plot-top N              Plot top N cell types, or 0 for all, default 30\n  \
 --method METHOD           pearson (default), cosine, or dot-product\n  \
 --min-genes N             Minimum matched genes per cell; default 3\n  \
 --threshold X             Score threshold; default 0\n  \

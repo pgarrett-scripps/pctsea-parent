@@ -48,7 +48,10 @@ pctsea analyze \
   --atlas ./data/HCL_Fig1_adata.h5ad \
   --input examples/t_cell_query.tsv \
   --permutations 1000 \
-  --output results.tsv
+  --output results.tsv \
+  --posthoc-output pairwise.tsv \
+  --plot-output enrichment.svg \
+  --html-output report.html
 ```
 
 The HCL download is about 811 MiB. If `--output` is omitted during download,
@@ -69,6 +72,36 @@ TRBC1   8
 Gene names are matched without regard to case. The score can be Pearson
 correlation, cosine similarity, or dot product. Run `pctsea help` for all
 analysis options.
+
+## Statistics and visualization
+
+The main results file reports cell-type enrichment from two complementary
+tests. The hypergeometric test asks whether a cell type is overrepresented
+among cells that pass the score threshold. The weighted running-sum test asks
+whether it is concentrated near an extreme of the ranked list. Both include a
+Benjamini-Hochberg false discovery rate.
+
+`--posthoc-output pairwise.tsv` adds a nonparametric follow-up analysis of the
+cell scores. A Kruskal-Wallis omnibus test first asks whether any cell-type
+score distributions differ. Dunn comparisons then test every cell-type pair
+using ranks from the combined data. The TSV reports group sizes, median scores,
+median differences, Dunn z scores, raw p-values, and Benjamini-Hochberg FDRs.
+These tests use all scorable cells, including cells that do not pass the score
+threshold. Pairwise results are most useful when the omnibus test supports an
+overall difference. The rank tests treat individual cells as independent
+observations. Studies with donor-level or batch-level replication should also
+use a replicate-aware validation analysis before publication.
+
+`--plot-output enrichment.svg` writes a standalone vector plot of normalized
+enrichment scores and permutation FDRs. Positive and negative enrichments use
+different colors. Saturated marks pass the default 0.05 FDR threshold. The
+plot includes the 30 cell types ranked highest in the result table by default.
+Use `--plot-top 0` for every type or `--plot-top N` for another limit.
+
+`--html-output report.html` combines the run configuration, query coverage,
+embedded enrichment plot, complete cell-type table, omnibus result, and Dunn
+comparisons into one self-contained report. It does not load fonts, scripts,
+or styles from the internet, so the file can be archived and shared directly.
 
 Protein-level inputs should be converted into this small canonical query
 format before analysis. The validation adapter in

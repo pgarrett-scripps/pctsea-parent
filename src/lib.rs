@@ -10,10 +10,13 @@ mod catalog;
 mod error;
 mod h5ad;
 mod input;
+mod report;
 mod stats;
+mod visualization;
 
 pub use analysis::{
-    AnalysisConfig, AnalysisResult, CellScore, CellTypeResult, ScoringMethod, analyze,
+    AnalysisConfig, AnalysisResult, CellScore, CellTypeResult, DunnComparison, KruskalWallisResult,
+    ScoringMethod, analyze,
 };
 pub use atlas::{Atlas, AtlasBuilder, AtlasData, AtlasInfo, Cell, GeneExpression, LoadedQuery};
 pub use catalog::{
@@ -23,3 +26,5 @@ pub use catalog::{
 pub use error::{Error, Result};
 pub use h5ad::{AnyAtlas, H5adAtlas};
 pub use input::{GeneQuery, QueryGene};
+pub use report::html_report;
+pub use visualization::{PlotConfig, enrichment_svg};

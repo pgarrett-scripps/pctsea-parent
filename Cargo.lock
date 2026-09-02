@@ -78,8 +78,6 @@ dependencies = [
 [[package]]
 name = "anndata-hdf5"
 version = "0.5.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "45549b64cc7401453a89885f79d3089d85fe83e2e6f79f1db1bef155fc58fd2c"
 dependencies = [
  "anndata",
  "anyhow",

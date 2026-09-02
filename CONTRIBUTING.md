@@ -6,7 +6,7 @@ Rustfmt and Clippy.
 Run the local quality gate before opening a pull request:
 
 ```bash
-cargo fmt --all --check
+cargo fmt --package pctsea --check
 cargo clippy --locked --all-targets -- -D warnings
 cargo test --locked --all-targets
 python3 -m unittest discover -s tools -p 'test_*.py' -v

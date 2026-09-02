@@ -1,4 +1,7 @@
-use crate::stats::{benjamini_hochberg, hypergeometric_upper_tail};
+use crate::stats::{
+    average_ranks, benjamini_hochberg, chi_square_upper_tail, hypergeometric_upper_tail,
+    standard_normal_two_sided_p,
+};
 use crate::{AtlasData, Error, GeneQuery, LoadedQuery, Result};
 use std::collections::{BTreeMap, HashMap, HashSet};
 use std::fmt::{Display, Formatter};
@@ -97,6 +100,32 @@ pub struct CellTypeResult {
     pub top_genes: Vec<(String, usize)>,
 }
 
+/// Kruskal-Wallis omnibus test for differences in cell-score distributions.
+#[derive(Clone, Debug)]
+pub struct KruskalWallisResult {
+    pub statistic: f64,
+    pub degrees_of_freedom: usize,
+    pub p_value: f64,
+}
+
+/// Dunn pairwise comparison following the score-distribution omnibus test.
+#[derive(Clone, Debug)]
+pub struct DunnComparison {
+    pub cell_type_a: String,
+    pub cell_type_b: String,
+    pub cells_a: usize,
+    pub cells_b: usize,
+    pub median_score_a: f64,
+    pub median_score_b: f64,
+    /// Median score for A minus the median score for B.
+    pub median_difference: f64,
+    /// Positive values mean that A has the higher mean rank.
+    pub z_score: f64,
+    pub p_value: f64,
+    /// Benjamini-Hochberg correction across all pairwise comparisons.
+    pub fdr: f64,
+}
+
 /// Complete in-memory result of an analysis.
 #[derive(Clone, Debug)]
 pub struct AnalysisResult {
@@ -107,6 +136,8 @@ pub struct AnalysisResult {
     pub cells_passing: usize,
     pub cell_scores: Vec<CellScore>,
     pub cell_types: Vec<CellTypeResult>,
+    pub score_distribution_test: KruskalWallisResult,
+    pub post_hoc_comparisons: Vec<DunnComparison>,
 }
 
 /// Scores cells and tests cell-type enrichment against a file-backed atlas.
@@ -218,6 +249,8 @@ pub fn analyze<A: AtlasData + ?Sized>(
         &loaded,
         type_names.len(),
     );
+    let (score_distribution_test, post_hoc_comparisons) =
+        score_distribution_tests(&scores, &type_names, &score_type_ids);
 
     let mut cell_types: Vec<_> = type_names
         .into_iter()
@@ -253,6 +286,8 @@ pub fn analyze<A: AtlasData + ?Sized>(
         cells_passing,
         cell_scores: scores,
         cell_types,
+        score_distribution_test,
+        post_hoc_comparisons,
     })
 }
 
@@ -408,6 +443,107 @@ fn compare_scores(left: f64, right: f64, threshold: Option<f64>) -> std::cmp::Or
         left.total_cmp(&right)
     } else {
         right.total_cmp(&left)
+    }
+}
+
+fn score_distribution_tests(
+    scores: &[CellScore],
+    type_names: &[String],
+    type_ids: &[usize],
+) -> (KruskalWallisResult, Vec<DunnComparison>) {
+    let degrees_of_freedom = type_names.len().saturating_sub(1);
+    let unavailable = KruskalWallisResult {
+        statistic: f64::NAN,
+        degrees_of_freedom,
+        p_value: f64::NAN,
+    };
+    if scores.len() < 2 || type_names.len() < 2 || scores.len() != type_ids.len() {
+        return (unavailable, Vec::new());
+    }
+    let values: Vec<_> = scores.iter().map(|score| score.score).collect();
+    let Some((ranks, tie_sum)) = average_ranks(&values) else {
+        return (unavailable, Vec::new());
+    };
+    let mut counts = vec![0_usize; type_names.len()];
+    let mut rank_sums = vec![0.0; type_names.len()];
+    let mut values_by_type = vec![Vec::new(); type_names.len()];
+    for ((&type_id, &rank), &value) in type_ids.iter().zip(&ranks).zip(&values) {
+        counts[type_id] += 1;
+        rank_sums[type_id] += rank;
+        values_by_type[type_id].push(value);
+    }
+    let total = scores.len() as f64;
+    let tie_correction = 1.0 - tie_sum / (total * total * total - total);
+    if tie_correction <= 0.0 {
+        return (unavailable, Vec::new());
+    }
+    let raw_statistic = 12.0 / (total * (total + 1.0))
+        * rank_sums
+            .iter()
+            .zip(&counts)
+            .map(|(&sum, &count)| sum * sum / count as f64)
+            .sum::<f64>()
+        - 3.0 * (total + 1.0);
+    let statistic = (raw_statistic / tie_correction).max(0.0);
+    let omnibus = KruskalWallisResult {
+        statistic,
+        degrees_of_freedom,
+        p_value: chi_square_upper_tail(statistic, degrees_of_freedom),
+    };
+
+    for values in &mut values_by_type {
+        values.sort_by(f64::total_cmp);
+    }
+    let medians: Vec<_> = values_by_type.iter().map(|values| median(values)).collect();
+    let variance = total * (total + 1.0) / 12.0 - tie_sum / (12.0 * (total - 1.0));
+    let mut comparisons = Vec::with_capacity(type_names.len() * (type_names.len() - 1) / 2);
+    for left in 0..type_names.len() {
+        for right in (left + 1)..type_names.len() {
+            let standard_error =
+                (variance * (1.0 / counts[left] as f64 + 1.0 / counts[right] as f64)).sqrt();
+            let z_score = if standard_error > 0.0 {
+                (rank_sums[left] / counts[left] as f64 - rank_sums[right] / counts[right] as f64)
+                    / standard_error
+            } else {
+                f64::NAN
+            };
+            comparisons.push(DunnComparison {
+                cell_type_a: type_names[left].clone(),
+                cell_type_b: type_names[right].clone(),
+                cells_a: counts[left],
+                cells_b: counts[right],
+                median_score_a: medians[left],
+                median_score_b: medians[right],
+                median_difference: medians[left] - medians[right],
+                z_score,
+                p_value: standard_normal_two_sided_p(z_score),
+                fdr: f64::NAN,
+            });
+        }
+    }
+    let adjusted = benjamini_hochberg(
+        &comparisons
+            .iter()
+            .map(|comparison| comparison.p_value)
+            .collect::<Vec<_>>(),
+    );
+    for (comparison, fdr) in comparisons.iter_mut().zip(adjusted) {
+        comparison.fdr = fdr;
+    }
+    comparisons.sort_by(|left, right| {
+        finite_first(left.fdr, right.fdr)
+            .then_with(|| right.z_score.abs().total_cmp(&left.z_score.abs()))
+            .then_with(|| left.cell_type_a.cmp(&right.cell_type_a))
+            .then_with(|| left.cell_type_b.cmp(&right.cell_type_b))
+    });
+    (omnibus, comparisons)
+}
+
+fn median(sorted: &[f64]) -> f64 {
+    match sorted.len() {
+        0 => f64::NAN,
+        length if length % 2 == 1 => sorted[length / 2],
+        length => (sorted[length / 2 - 1] + sorted[length / 2]) / 2.0,
     }
 }
 
@@ -739,5 +875,36 @@ mod tests {
             assert_eq!(actual, expected);
             assert_eq!(genes_used, 3);
         }
+    }
+
+    #[test]
+    fn score_distribution_tests_find_separated_groups() {
+        let type_names: Vec<String> = vec!["A".into(), "B".into(), "C".into()];
+        let type_ids = [0, 0, 1, 1, 2, 2];
+        let scores: Vec<_> = [1.0, 2.0, 3.0, 4.0, 5.0, 6.0]
+            .into_iter()
+            .enumerate()
+            .map(|(cell_index, score)| CellScore {
+                cell_index,
+                cell_name: format!("cell-{cell_index}"),
+                cell_type: type_names[type_ids[cell_index]].clone(),
+                dataset: "test".into(),
+                score,
+                genes_used: 3,
+                passes_threshold: true,
+            })
+            .collect();
+        let (omnibus, comparisons) = score_distribution_tests(&scores, &type_names, &type_ids);
+        assert!((omnibus.statistic - 4.571_428_571_4).abs() < 1e-10);
+        assert!((omnibus.p_value - 0.101_701_392_3).abs() < 2e-7);
+        assert_eq!(comparisons.len(), 3);
+        let extremes = comparisons
+            .iter()
+            .find(|comparison| comparison.cell_type_a == "A" && comparison.cell_type_b == "C")
+            .unwrap();
+        assert!((extremes.median_difference + 4.0).abs() < 1e-12);
+        assert!((extremes.z_score + 2.138_089_935_3).abs() < 1e-10);
+        assert!((extremes.p_value - 0.032_509_444_6).abs() < 2e-7);
+        assert!((extremes.fdr - 0.097_528_333_8).abs() < 5e-7);
     }
 }

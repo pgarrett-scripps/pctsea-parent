@@ -1,6 +1,7 @@
 use pctsea::{AnalysisConfig, Atlas, AtlasBuilder, GeneQuery, analyze};
 use std::fs;
 use std::path::PathBuf;
+use std::process::Command;
 use std::time::{SystemTime, UNIX_EPOCH};
 
 fn temp_file(name: &str) -> PathBuf {
@@ -16,6 +17,11 @@ fn public_api_runs_end_to_end() {
     let cells = temp_file("cells.tsv");
     let expressions = temp_file("expressions.tsv");
     let atlas_path = temp_file("atlas.pctsea");
+    let query_path = temp_file("query.tsv");
+    let results_path = temp_file("results.tsv");
+    let post_hoc_path = temp_file("posthoc.tsv");
+    let plot_path = temp_file("plot.svg");
+    let report_path = temp_file("report.html");
     fs::write(
         &cells,
         "cell\tcell_type\tdataset\nt1\tT\tdemo\nt2\tT\tdemo\nb1\tB\tdemo\nb2\tB\tdemo\n",
@@ -60,8 +66,53 @@ fn public_api_runs_end_to_end() {
     assert!(t_cells.enrichment_score > 0.0);
     assert!(b_cells.enrichment_score < 0.0);
     assert!(t_cells.permutation_p_value.is_finite());
+    assert!(result.score_distribution_test.p_value.is_finite());
+    assert_eq!(result.post_hoc_comparisons.len(), 1);
 
-    for path in [cells, expressions, atlas_path] {
+    fs::write(&query_path, "gene\tvalue\nG1\t4\nG2\t3\nG3\t1\n").unwrap();
+    let status = Command::new(env!("CARGO_BIN_EXE_pctsea"))
+        .args([
+            "analyze",
+            "--atlas",
+            atlas_path.to_str().unwrap(),
+            "--input",
+            query_path.to_str().unwrap(),
+            "--output",
+            results_path.to_str().unwrap(),
+            "--posthoc-output",
+            post_hoc_path.to_str().unwrap(),
+            "--plot-output",
+            plot_path.to_str().unwrap(),
+            "--html-output",
+            report_path.to_str().unwrap(),
+            "--no-threshold",
+            "--permutations",
+            "20",
+        ])
+        .status()
+        .unwrap();
+    assert!(status.success());
+    let post_hoc = fs::read_to_string(&post_hoc_path).unwrap();
+    assert!(post_hoc.starts_with("# kruskal_wallis\t"));
+    assert!(post_hoc.contains("cell_type_a\tcell_type_b"));
+    let plot = fs::read_to_string(&plot_path).unwrap();
+    assert!(plot.starts_with("<svg"));
+    assert!(plot.contains("normalized enrichment score"));
+    let report = fs::read_to_string(&report_path).unwrap();
+    assert!(report.starts_with("<!doctype html>"));
+    assert!(report.contains("Score-distribution follow-up"));
+    assert!(report.contains("<svg"));
+
+    for path in [
+        cells,
+        expressions,
+        atlas_path,
+        query_path,
+        results_path,
+        post_hoc_path,
+        plot_path,
+        report_path,
+    ] {
         fs::remove_file(path).unwrap();
     }
 }
